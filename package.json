@@ -1,0 +1,22 @@
+{
+  "name": "final_project",
+  "version": "1.0.0",
+  "description": "Final Project for Playwright course",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZofiaBajerska/final_project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZofiaBajerska/final_project/issues"
+  },
+  "homepage": "https://github.com/ZofiaBajerska/final_project#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.53.1",
+    "@types/node": "^24.0.7"
+  }
+}

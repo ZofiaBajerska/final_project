@@ -14,3 +14,26 @@ const gdpr = new GdprHelper(page);
   await expect(gdpr.acceptGdprButton).not.toBeVisible();
 });
 
+test('API test GET All Products List', async ({ request }) => {
+  const allProductList = await request.get('https://automationexercise.com/api/productsList');
+
+  expect(allProductList.status()).toBe(200);
+  expect(await allProductList.text()).toContain('Blue Top');
+});
+
+test('API test POST to Search Product', async ({ request }) => {
+  const response = await request.post('https://automationexercise.com/api/searchProduct',{
+    form:{
+      search_product : 'Top'
+    }
+  });
+
+  expect(response.status()).toBe(200);
+  const data = await response.json();
+  expect(data).toHaveProperty('products');
+  expect(data.products.length).toBeGreaterThan(0);
+});
+
+
+
+

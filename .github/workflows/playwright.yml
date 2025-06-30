@@ -4,10 +4,20 @@ on:
     branches: [ main, master ]
   pull_request:
     branches: [ main, master ]
+  schedule:
+    - cron: '0 12 * * *'
+    - cron: '0 16 * * *'
+    - cron: '0 21 * * *'
+  workflow_dispatch:
+
 jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    env:
+      API_URL: ${{ vars.API_URL }}
+      UI_URL: ${{ vars.UI_URL }}
+      API_KEY: ${{ secrets.API_KEY }}
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
